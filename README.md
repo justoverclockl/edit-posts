@@ -4,6 +4,9 @@
 
 A [Flarum](http://flarum.org) extension. Edit Posts button always visible
 
+![Immagine 2021-08-08 195329](https://user-images.githubusercontent.com/79002016/128642279-31352353-df57-4697-a447-676617b9366a.png)
+
+
 ## Installation
 
 Install with composer:
