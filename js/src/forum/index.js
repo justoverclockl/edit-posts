@@ -39,4 +39,10 @@ app.initializers.add('justoverclock/edit-posts', () => {
       items.remove('edit');
     }
   })
+  extend(PostControls.destructiveControls, function (items) {
+    console.log(PostControls.destructiveControls)
+    if (items.has('Delete')) {
+      items.remove('Delete');
+    }
+  })
 });

@@ -159,6 +159,13 @@ flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default.a.initializers.add('justov
       items.remove('edit');
     }
   });
+  Object(flarum_common_extend__WEBPACK_IMPORTED_MODULE_1__["extend"])(flarum_forum_utils_PostControls__WEBPACK_IMPORTED_MODULE_4___default.a.destructiveControls, function (items) {
+    console.log(flarum_forum_utils_PostControls__WEBPACK_IMPORTED_MODULE_4___default.a.destructiveControls);
+
+    if (items.has('Delete')) {
+      items.remove('Delete');
+    }
+  });
 });
 
 /***/ }),
