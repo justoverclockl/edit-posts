@@ -1,2 +1,241 @@
-module.exports=function(t){var e={};function o(n){if(e[n])return e[n].exports;var r=e[n]={i:n,l:!1,exports:{}};return t[n].call(r.exports,r,r.exports,o),r.l=!0,r.exports}return o.m=t,o.c=e,o.d=function(t,e,n){o.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},o.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},o.t=function(t,e){if(1&e&&(t=o(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)o.d(n,r,function(e){return t[e]}.bind(null,r));return n},o.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return o.d(e,"a",e),e},o.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},o.p="",o(o.s=5)}([function(t,e){t.exports=flarum.core.compat["forum/utils/PostControls"]},function(t,e){t.exports=flarum.core.compat["forum/app"]},function(t,e){t.exports=flarum.core.compat["common/extend"]},function(t,e){t.exports=flarum.core.compat["common/components/Button"]},function(t,e){t.exports=flarum.core.compat["forum/components/CommentPost"]},function(t,e,o){"use strict";o.r(e);var n=o(4),r=o.n(n),s=o(2),i=o(1),a=o.n(i),c=o(3),u=o.n(c),l=o(0),f=o.n(l);a.a.initializers.add("justoverclock/edit-posts",(function(){Object(s.extend)(r.a.prototype,"content",(function(t){this.attrs.post.canEdit()&&(this.attrs.post.isHidden()||(t.push(u.a.component({className:"Button hidebutton",icon:"fas fa-eye",title:a.a.translator.trans("justoverclock-edit-posts.forum.hidepost"),onclick:f.a.hideAction.bind(this.attrs.post)})),t.push(u.a.component({className:"Button edipostbutton",icon:"fas fa-pen",title:a.a.translator.trans("justoverclock-edit-posts.forum.editpost"),onclick:f.a.editAction.bind(this.attrs.post)})),t.push(u.a.component({className:"Button delpostbutton",icon:"far fa-trash-alt",title:a.a.translator.trans("justoverclock-edit-posts.forum.deleteforever"),onclick:f.a.deleteAction.bind(this.attrs.post)}))))})),Object(s.extend)(f.a,"moderationControls",(function(t){t.has("edit")&&t.remove("edit")})),Object(s.extend)(f.a,"destructiveControls",(function(t){t.has("hide")&&t.remove("hide"),t.has("delete")&&t.remove("delete")}))}))}]);
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./forum.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./forum.js":
+/*!******************!*\
+  !*** ./forum.js ***!
+  \******************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _src_forum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/forum */ "./src/forum/index.js");
+/* empty/unused harmony star reexport */
+
+/***/ }),
+
+/***/ "./src/forum/index.js":
+/*!****************************!*\
+  !*** ./src/forum/index.js ***!
+  \****************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var flarum_forum_components_CommentPost__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! flarum/forum/components/CommentPost */ "flarum/forum/components/CommentPost");
+/* harmony import */ var flarum_forum_components_CommentPost__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(flarum_forum_components_CommentPost__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var flarum_common_extend__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! flarum/common/extend */ "flarum/common/extend");
+/* harmony import */ var flarum_common_extend__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(flarum_common_extend__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var flarum_forum_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! flarum/forum/app */ "flarum/forum/app");
+/* harmony import */ var flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(flarum_forum_app__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var flarum_common_components_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! flarum/common/components/Button */ "flarum/common/components/Button");
+/* harmony import */ var flarum_common_components_Button__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(flarum_common_components_Button__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var flarum_forum_utils_PostControls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! flarum/forum/utils/PostControls */ "flarum/forum/utils/PostControls");
+/* harmony import */ var flarum_forum_utils_PostControls__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(flarum_forum_utils_PostControls__WEBPACK_IMPORTED_MODULE_4__);
+/*
+ * This file is part of justoverclock/edit-posts.
+ *
+ * Copyright (c) 2021 Marco Colia.
+ * https://flarum.it
+ * based on Clark Winkelmann tutorial
+ *
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
+
+
+
+
+flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default.a.initializers.add('justoverclock/edit-posts', function () {
+  Object(flarum_common_extend__WEBPACK_IMPORTED_MODULE_1__["extend"])(flarum_forum_components_CommentPost__WEBPACK_IMPORTED_MODULE_0___default.a.prototype, 'content', function (content) {
+    if (!this.attrs.post.canEdit()) {
+      return;
+    }
+
+    if (this.attrs.post.isHidden()) {
+      return;
+    }
+
+    content.push(flarum_common_components_Button__WEBPACK_IMPORTED_MODULE_3___default.a.component({
+      className: 'Dropdown-toggle Button Button--icon Button--flat hidebutton',
+      icon: 'fas fa-eye',
+      title: flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default.a.translator.trans('justoverclock-edit-posts.forum.hidepost'),
+      onclick: flarum_forum_utils_PostControls__WEBPACK_IMPORTED_MODULE_4___default.a.hideAction.bind(this.attrs.post)
+    }));
+    content.push(flarum_common_components_Button__WEBPACK_IMPORTED_MODULE_3___default.a.component({
+      className: 'Dropdown-toggle Button Button--icon Button--flat edipostbutton',
+      icon: 'fas fa-pen',
+      title: flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default.a.translator.trans('justoverclock-edit-posts.forum.editpost'),
+      onclick: flarum_forum_utils_PostControls__WEBPACK_IMPORTED_MODULE_4___default.a.editAction.bind(this.attrs.post)
+    }));
+    content.push(flarum_common_components_Button__WEBPACK_IMPORTED_MODULE_3___default.a.component({
+      className: 'Dropdown-toggle Button Button--icon Button--flat delpostbutton',
+      icon: 'far fa-trash-alt',
+      title: flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default.a.translator.trans('justoverclock-edit-posts.forum.deleteforever'),
+      onclick: flarum_forum_utils_PostControls__WEBPACK_IMPORTED_MODULE_4___default.a.deleteAction.bind(this.attrs.post)
+    }));
+  });
+  Object(flarum_common_extend__WEBPACK_IMPORTED_MODULE_1__["extend"])(flarum_forum_utils_PostControls__WEBPACK_IMPORTED_MODULE_4___default.a, 'moderationControls', function (items) {
+    if (items.has('edit')) {
+      items.remove('edit');
+    }
+  });
+  Object(flarum_common_extend__WEBPACK_IMPORTED_MODULE_1__["extend"])(flarum_forum_utils_PostControls__WEBPACK_IMPORTED_MODULE_4___default.a, 'destructiveControls', function (items) {
+    if (items.has('hide')) {
+      items.remove('hide');
+    }
+
+    if (items.has('delete')) {
+      items.remove('delete');
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "flarum/common/components/Button":
+/*!*****************************************************************!*\
+  !*** external "flarum.core.compat['common/components/Button']" ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = flarum.core.compat['common/components/Button'];
+
+/***/ }),
+
+/***/ "flarum/common/extend":
+/*!******************************************************!*\
+  !*** external "flarum.core.compat['common/extend']" ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = flarum.core.compat['common/extend'];
+
+/***/ }),
+
+/***/ "flarum/forum/app":
+/*!**************************************************!*\
+  !*** external "flarum.core.compat['forum/app']" ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = flarum.core.compat['forum/app'];
+
+/***/ }),
+
+/***/ "flarum/forum/components/CommentPost":
+/*!*********************************************************************!*\
+  !*** external "flarum.core.compat['forum/components/CommentPost']" ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = flarum.core.compat['forum/components/CommentPost'];
+
+/***/ }),
+
+/***/ "flarum/forum/utils/PostControls":
+/*!*****************************************************************!*\
+  !*** external "flarum.core.compat['forum/utils/PostControls']" ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = flarum.core.compat['forum/utils/PostControls'];
+
+/***/ })
+
+/******/ });
 //# sourceMappingURL=forum.js.map

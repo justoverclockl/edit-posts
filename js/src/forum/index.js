@@ -24,21 +24,21 @@ app.initializers.add('justoverclock/edit-posts', () => {
       return;
     }
     content.push(Button.component({
-        className: 'Button hidebutton',
+        className: 'Dropdown-toggle Button Button--icon Button--flat hidebutton',
         icon: 'fas fa-eye',
         title: app.translator.trans('justoverclock-edit-posts.forum.hidepost'),
         onclick: PostControls.hideAction.bind(this.attrs.post)
       }
     ));
     content.push(Button.component({
-        className: 'Button edipostbutton',
+        className: 'Dropdown-toggle Button Button--icon Button--flat edipostbutton',
         icon: 'fas fa-pen',
         title: app.translator.trans('justoverclock-edit-posts.forum.editpost'),
         onclick: PostControls.editAction.bind(this.attrs.post)
       }
     ));
     content.push(Button.component({
-        className: 'Button delpostbutton',
+        className: 'Dropdown-toggle Button Button--icon Button--flat delpostbutton',
         icon: 'far fa-trash-alt',
         title: app.translator.trans('justoverclock-edit-posts.forum.deleteforever'),
         onclick: PostControls.deleteAction.bind(this.attrs.post)
